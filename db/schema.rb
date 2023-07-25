@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_20_235222) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_25_172150) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -18,9 +18,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_20_235222) do
     t.string "first_name"
     t.string "last_name"
     t.string "uid"
-    t.time "completion_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "completion_time"
+    t.integer "tutorial_id"
   end
 
   create_table "tutorials", force: :cascade do |t|

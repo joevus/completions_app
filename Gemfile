@@ -12,8 +12,14 @@ gem "sprockets-rails"
 # user authentication
 gem "devise"
 
+# Gemfile
+gem 'rack-cors', :require => 'rack/cors'
+
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"
+
+# ability to use binding.pry
+gem "pry-rails"
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"

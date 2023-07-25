@@ -36,6 +36,6 @@ class CompletionsController < ApplicationController
     end
     
     def completion_params
-      params.require(:completion).permit(:student_name, :student_id)
+      params.require(:completion).permit(:first_name, :last_name, :uid, :tutorial_id)
     end
 end
