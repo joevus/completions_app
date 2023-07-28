@@ -1,9 +1,9 @@
 class CompletionsController < ApplicationController
     before_action :set_completion, only: [:update, :destroy]
+    before_action :authenticate_user!, only: [:index, :delete, :update]
     
     def index
         @completions = Completion.all
-        render json: @completions
     end
     
     def create

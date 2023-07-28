@@ -1,4 +1,5 @@
 class Completion < ApplicationRecord
+    belongs_to :tutorial
     before_create :assign_defaults
 
     validates :first_name, presence: true

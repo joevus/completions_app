@@ -4,5 +4,7 @@ Rails.application.routes.draw do
 
   resources :completions, only: [:index, :create, :update, :destroy]
 
+  resources :tutorials
+
   root to: "home#index"
 end

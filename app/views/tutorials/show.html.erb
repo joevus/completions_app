@@ -1,0 +1,34 @@
+<%= button_to "Sign out", destroy_user_session_path, method: :delete %> 
+<br>
+<%=link_to "Home", root_path %>
+<br>
+<%=link_to "Tutorials", tutorials_path %>
+
+<h1>Tutorial: <%= @tutorial.name %> </h1>
+
+<%# A table of completions %>
+<h1>Completions</h1>
+<table>
+  <thead>
+    <tr>
+      <th>First name</th>
+      <th>Last name</th>  
+      <th>UID</th>
+      <th>Tutorial Name</th>
+      <th>Tutorial ID</th>
+      <th>Completion time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @tutorial.completions.each do |completion| %>
+      <tr>
+        <td><%= completion.first_name %></td>
+        <td><%= completion.last_name %></td>
+        <td><%= completion.uid %></td>
+        <td><%= completion.tutorial.name %></td>
+        <td><%= completion.tutorial_id %></td>
+        <td><%= completion.completion_time %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
