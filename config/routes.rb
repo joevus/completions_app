@@ -7,7 +7,11 @@ Rails.application.routes.draw do
         passwords: 'users/passwords'
       }
   
-  resources :users, only: [:index, :show, :update, :destroy]
+  namespace :admin do
+    resources :users, only: [:index, :show, :update, :destroy], controllers: {
+      sessions: 'admin/users'
+    }
+  end
 
   resources :completions, only: [:index, :create, :update, :destroy]
 

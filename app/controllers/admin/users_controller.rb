@@ -1,6 +1,6 @@
-class UsersController < ApplicationController
+class Admin::UsersController < ApplicationController
   before_action :authenticate_user!
-  before_action :enforce_admin
+  before_action :enforce_admin, only: [:index, :show]
 
   def index
     @users = User.all

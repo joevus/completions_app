@@ -18,7 +18,7 @@
       <tr>
         <td><%= user.first_name %></td>
         <td><%= user.last_name %></td>
-        <td><%= link_to user.email, user_url(user.id) %></td>
+        <td><%= link_to user.email, admin_user_url(user.id) %></td>
         <td><%= user.role.name %></td>
       </tr>
     <% end %>
