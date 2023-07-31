@@ -1,24 +1,22 @@
-<div class="container">
-  <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "btn btn-primary" %> 
-  <br>
-  <%=link_to "Home", root_path %>
+<%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "btn btn-primary" %> 
+<br>
+<%=link_to "Home", root_path %>
 
-  <%# List tutorials %>
-  <h1>Tutorials</h1>
-  <table class="table table-striped">
-    <thead>
+<%# List tutorials %>
+<h1>Tutorials</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Tutorial Name</th>
+      <th scope="col">ID</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @tutorials.each do |tutorial| %>
       <tr>
-        <th scope="col">Tutorial Name</th>
-        <th scope="col">ID</th>
+        <td><%= link_to tutorial.name, tutorial_url(tutorial.id) %></td>
+        <td><%= tutorial.id %></td>
       </tr>
-    </thead>
-    <tbody>
-      <% @tutorials.each do |tutorial| %>
-        <tr>
-          <td><%= link_to tutorial.name, tutorial_url(tutorial.id) %></td>
-          <td><%= tutorial.id %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-</div>
+    <% end %>
+  </tbody>
+</table>

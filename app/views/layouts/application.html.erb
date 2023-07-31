@@ -10,8 +10,25 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p> 
-    <p class="alert"><%= alert %></p> 
-    <%= yield %>
+    <ul class="nav">
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="/">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/tutorials">Tutorials</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/users/sign_in">Sign in</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+      </li>
+    </ul>
+
+    <div class="container">
+      <p class="notice"><%= notice %></p> 
+      <p class="alert"><%= alert %></p> 
+      <%= yield %>
+    </div>
   </body>
 </html>
