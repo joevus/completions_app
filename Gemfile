@@ -9,6 +9,12 @@ gem "rails", "~> 7.0.6"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
+# bootstrap for styles
+gem 'bootstrap'
+
+# jquery for javascript
+gem 'jquery-rails'
+
 # user authentication
 gem "devise"
 
