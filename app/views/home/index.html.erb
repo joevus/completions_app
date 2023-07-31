@@ -1,7 +1,6 @@
 <% if user_signed_in? %> 
-<div> Welcome </div> 
-Click below to view the tutorials available.
-Or <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "btn btn-primary" %>
+<h1> Welcome </h2> 
+<p>Click below to view the tutorials available.</p>
 <% else %>
 <%= link_to "Sign in", new_user_session_path %> to get started.
 <% end %>
