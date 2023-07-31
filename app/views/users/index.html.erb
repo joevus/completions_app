@@ -1,26 +1,28 @@
-<%= button_to "Sign out", destroy_user_session_path, method: :delete %> 
-<br>
-<%=link_to "Home", root_path %>
+<div class="container">
+  <%= button_to "Sign out", destroy_user_session_path, method: :delete %> 
+  <br>
+  <%=link_to "Home", root_path %>
 
-<%# List users %>
-<h1>Users</h1>
-<table>
-  <thead>
-    <tr>
-      <th>First name</th>
-      <th>Last name</th>
-      <th>Email</th>
-      <th>Role</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @users.each do |user| %>
+  <%# List users %>
+  <h1>Users</h1>
+  <table>
+    <thead>
       <tr>
-        <td><%= user.first_name %></td>
-        <td><%= user.last_name %></td>
-        <td><%= link_to user.email, user_url(user.id) %></td>
-        <td><%= user.role.name %></td>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Email</th>
+        <th>Role</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= user.first_name %></td>
+          <td><%= user.last_name %></td>
+          <td><%= link_to user.email, user_url(user.id) %></td>
+          <td><%= user.role.name %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

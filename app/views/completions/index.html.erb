@@ -1,35 +1,36 @@
+<div class="container">
+  <%=link_to "Home", root_path %>
+  <br><br>
+  <%= button_to "Sign out", destroy_user_session_path, method: :delete %> 
 
-<%=link_to "Home", root_path %>
-<br><br>
-<%= button_to "Sign out", destroy_user_session_path, method: :delete %> 
+  <% if current_user.role.name == "admin" || current_user.role.name == "moderator" %>
 
-<% if current_user.role.name == "admin" || current_user.role.name == "moderator" %>
-
-  <%# A table of completions %>
-  <h1>Completions</h1>
-  <table>
-    <thead>
-      <tr>
-        <th>First name</th>
-        <th>Last name</th>  
-        <th>UID</th>
-        <th>Tutorial ID</th>
-        <th>Completion time</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @completions.each do |completion| %>
+    <%# A table of completions %>
+    <h1>Completions</h1>
+    <table>
+      <thead>
         <tr>
-          <td><%= completion.first_name %></td>
-          <td><%= completion.last_name %></td>
-          <td><%= completion.uid %></td>
-          <td><%= completion.tutorial_id %></td>
-          <td><%= completion.completion_time %></td>
+          <th>First name</th>
+          <th>Last name</th>  
+          <th>UID</th>
+          <th>Tutorial ID</th>
+          <th>Completion time</th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
-<% else %>
-<h1>You are not authorized to view this page.</h1>
-<p> If you need to be authroized to see students' tutorial completions, please contact the website administrator. </p>
-<% end %>
+      </thead>
+      <tbody>
+        <% @completions.each do |completion| %>
+          <tr>
+            <td><%= completion.first_name %></td>
+            <td><%= completion.last_name %></td>
+            <td><%= completion.uid %></td>
+            <td><%= completion.tutorial_id %></td>
+            <td><%= completion.completion_time %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+  <h1>You are not authorized to view this page.</h1>
+  <p> If you need to be authroized to see students' tutorial completions, please contact the website administrator. </p>
+  <% end %>
+</div>
