@@ -3,9 +3,8 @@
 
 <% if current_user.role.name == "admin" || current_user.role.name == "moderator" %>
 
-  <h1>Tutorial: <%= @tutorial.name %> </h1>
-
-  <h1>Completions</h1>
+  <h1>Completions: <%= @tutorial.name %> </h1>
+  <br>
 
   <div class="row">
     <div class="col-xl-10">
