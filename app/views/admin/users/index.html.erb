@@ -15,8 +15,20 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><%= user.first_name %></td>
-        <td><%= user.last_name %></td>
+        <td>
+          <% if user.first_name.nil? %>
+            <%= link_to "first name", admin_user_url(user.id) %>
+          <% else %>
+            <%= link_to user.first_name, admin_user_url(user.id) %>
+          <% end %>
+        </td>
+        <td>
+          <% if user.last_name.nil? %>
+            <%= link_to "last name", admin_user_url(user.id) %>
+          <% else %>
+            <%= link_to user.last_name, admin_user_url(user.id) %>
+          <% end %>
+        </td>
         <td><%= link_to user.email, admin_user_url(user.id) %></td>
         <td><%= user.role.name %></td>
       </tr>
