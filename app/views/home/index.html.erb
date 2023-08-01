@@ -1,13 +1,26 @@
-<% if user_signed_in? %> 
-<h1> Welcome </h2> 
-<p>Click below to view the tutorials available.</p>
-<% else %>
-<%= link_to "Sign in", new_user_session_path %> to get started.
-<% end %>
-<h1>Tutorial Completions</h1>
+<h1> Tutorial Completions </h1>
+  <p>Welcome to the tutorial completion web app. This is a tool for viewing which students have completed which R Tutorials on the <a href="http://bsos-tutorials.umd.edu">UMD BSOS R Tutorials collection</a>.</p>
 
-<%= link_to "Tutorials", tutorials_path %> <br>
+  <p>Completion records are organized by tutorial. To view completion records, navigate to the Tutorials page and then select a tutorial. Each tutorial page displays a table of completions.</p>
+
+
+
+<% if user_signed_in? %> 
+  <p>Hello <%= current_user.first_name %> <%= current_user.last_name %>, you are signed in.</p>
+<% else %>
+  <p>To access the completion records, you must register and then ask the website adminstrator to give you permission to view the completion records.</p>
+  <p> <%= link_to "Sign in", new_user_session_path %> to get started. </p>
+<% end %>
+
+<% if user_signed_in? && (current_user.role.name == 'admin' || current_user.role.name == 'moderator') %>
+  <p>Click <a href="/tutorials">here</a> to view the tutorials available or click Tutorials on the top navigation.</p>
+<% end %>
+
+<% if user_signed_in? && current_user.role.name == 'registered' %>
+  <p>You are registered but must ask the website administrator to grant you permission to see completion records. For now, you may view a list of the tutorials <a href="/tutorials">here</a>. You may also select Tutorials from the top naivagation.</p>
+<% end %>
 
 <% if user_signed_in? && current_user.role.name == 'admin' %>
-<%=link_to "Users", admin_users_path %>
+  <p>You are signed in as an administrator and may also manage the <%=link_to "Users", admin_users_path %> which is also linked to in the top navigation.</p>
+
 <% end %>
