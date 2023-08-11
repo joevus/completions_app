@@ -41,6 +41,15 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
+  # hosts
+  config.hosts = [
+    IPAddr.new("0.0.0.0/0"),        # All IPv4 addresses.
+    IPAddr.new("::/0"),             # All IPv6 addresses.
+    "localhost",
+    "completions.joehoskisson.com",
+    "www.completions.joehoskisson.com"
+  ]
+
   # default host for devise
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
