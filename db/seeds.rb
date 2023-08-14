@@ -10,5 +10,5 @@
 end
 
 ['data cleaning in r', 'data sets in r', 'subsetting in r', 'introduction to r and vectors'].each do |tutorial|
-  Tutorials.find_or_create_by({name: tutorial})
+  Tutorial.find_or_create_by({name: tutorial})
 end
