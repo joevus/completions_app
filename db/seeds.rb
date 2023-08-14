@@ -8,3 +8,7 @@
 ['registered', 'banned', 'moderator', 'admin'].each do |role|
   Role.find_or_create_by({name: role})
 end
+
+['data cleaning in r', 'data sets in r', 'subsetting in r', 'introduction to r and vectors'].each do |tutorial|
+  Tutorials.find_or_create_by({name: tutorial})
+end
